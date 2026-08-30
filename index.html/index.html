@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zura Chakvetadze | Premium Backend</title>
+    <!-- ტელეფონის აპლიკაციის აიქონი (Add to Home Screen) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="icon.jpg">
+    <link rel="icon" type="image/jpeg" href="icon.jpg">
+    <meta name="theme-color" content="#000000">
+
+    <!-- ლინკის გაზიარებისას გამოსაჩენი ფოტო (Open Graph) -->
+    <meta property="og:title" content="Zura Chakvetadze | Backend Developer">
+    <meta property="og:description" content="Available for Junior Backend roles. Architecting the Backend.">
+    <meta property="og:image" content="https://zura-cb-svg.github.io/portfolio/preview.jpg">
+    <meta property="og:url" content="https://zura-cb-svg.github.io/portfolio/">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --surface-hover: #141414;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --gradient-1: linear-gradient(135deg, #00DFD8 0%, #007CF0 100%);
+            --gradient-2: linear-gradient(135deg, #FF0080 0%, #7928CA 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            padding-bottom: 5rem;
+        }
+
+        .ambient-light {
+            position: fixed;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vw;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 124, 240, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .status-badge span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #00DFD8;
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 10px #00DFD8;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Scroll Reveal Base Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .bento-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                        border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .bento-item:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-8px) !important; /* !important needed to override reveal active state smoothly on hover */
+            background: var(--surface-hover);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .bento-wide {
+            grid-column: span 2;
+            background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+        }
+
+        .bento-wide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: var(--gradient-2);
+        }
+
+        .cert-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            border: 1px solid var(--border);
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+        }
+
+        .cert-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.7s ease;
+        }
+
+        .bento-item:hover .cert-img {
+            transform: scale(1.05);
+        }
+
+        .bento-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .bento-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .tech-list {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-pill {
+            font-size: 0.75rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: #ccc;
+        }
+
+        /* Buttons */
+        .action-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn-premium {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #000;
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-premium:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+
+        .btn-outline {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #fff;
+            background: transparent;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: #fff;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 900px) {
+            .container { padding: 0 1.5rem; }
+            .bento-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .bento-wide { grid-column: span 1; }
+            .hero { padding: 5rem 0 3rem 0; }
+            .hero h1 { font-size: 2.8rem; }
+            .action-links { flex-direction: column; width: 100%; }
+            .btn-premium, .btn-outline { width: 100%; padding: 1.2rem; }
+            .cert-container { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-light"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero reveal">
+            <div class="status-badge">
+                <span></span> Available for Junior Backend roles
+            </div>
+            <h1>Zura Chakvetadze.<br> <span class="gradient-text">Architecting the Backend.</span></h1>
+            <p>I build scalable databases, robust REST APIs, and efficient logic structures. Currently mastering Python, FastAPI, and SQL architecture.</p>
+            
+            <div class="action-links">
+                <a href="mailto:chakvetzura@gmail.com" class="btn-premium">Contact Me</a>
+                <a href="https://www.linkedin.com/in/zura-chakvetadze-709668406" target="_blank" class="btn-outline">LinkedIn</a>
+            </div>
+        </header>
+
+        <!-- Bento Grid Projects -->
+        <main class="bento-grid">
+            
+            <a href="https://github.com/zura-cb-svg/harvard-cs50p-final-project" target="_blank" class="bento-item bento-wide reveal">
+                <h2 class="bento-title">CS50P Harvard Graduate</h2>
+                <p class="bento-desc">Developed a comprehensive Studio Management System as my final project, proving proficiency in core programming logic and architecture.</p>
+                
+                <div class="cert-container">
+                    <img src="image.png.jpg.jpg" alt="Harvard CS50P Certificate" class="cert-img">
+                </div>
+            </a>
+
+            <a href="https://github.com/zura-cb-svg/fastapi-crud" target="_blank" class="bento-item reveal" style="transition-delay: 0.1s;">
+                <h2 class="bento-title">FastAPI CRUD System</h2>
+                <p class="bento-desc">A modern, high-performance REST API. Handles complete CRUD operations with database integration.</p>
+                <div class="tech-list">
+                    <span class="tech-pill">FastAPI</span>
+                    <span class="tech-pill">SQLAlchemy</span>
+                    <span class="tech-pill">SQLite</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/zura-cb-svg/task-manager" target="_blank" class="bento-item reveal" style="transition-delay: 0.2s;">
+                <h2 class="bento-title">Task Manager App</h2>
+                <p class="bento-desc">Backend logic for managing daily tasks, demonstrating object-oriented principles and clean code structure.</p>
+                <div class="tech-list">
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">OOP</span>
+                    <span class="tech-pill">Logic</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/zura-cb-svg/task-manager" target="_blank" class="bento-item bento-wide reveal" style="transition-delay: 0.3s;">
+                <h2 class="bento-title">Flask SQL Shop & Architecture</h2>
+                <p class="bento-desc">A web application demonstrating the bridge between frontend templates and backend relational databases.</p>
+                <div class="tech-list">
+                    <span class="tech-pill">Flask</span>
+                    <span class="tech-pill">SQL</span>
+                    <span class="tech-pill">HTML/CSS</span>
+                    <span class="tech-pill">Database Design</span>
+                </div>
+            </a>
+
+        </main>
+    </div>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: Stop observing once revealed
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1, // იწყებს გამოჩენას როცა ელემენტის 10% გამოჩნდება ეკრანზე
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
