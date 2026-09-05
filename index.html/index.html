@@ -3,104 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zura Chakvetadze | Premium Backend</title>
-    
+    <title>Zura Chakvetadze | Backend Developer</title>
+
     <link rel="apple-touch-icon" sizes="180x180" href="icon.jpg.jpg">
     <link rel="icon" type="image/jpeg" href="icon.jpg.jpg">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#06070a">
 
     <meta property="og:title" content="Zura Chakvetadze | Backend Developer">
-    <meta property="og:description" content="Available for Junior Backend roles. Architecting the Backend.">
-    <!-- აი ის ზუსტი ლინკი, რომელიც ვიპოვეთ -->
+    <meta property="og:description" content="Available for Junior Backend roles. Architecting the backend.">
     <meta property="og:image" content="https://github.com/zura-cb-svg/portfolio/blob/main/download%20(1).jpg?raw=true">
     <meta property="og:url" content="https://zura-cb-svg.github.io/portfolio/">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg: #000000;
-            --surface: #0a0a0a;
-            --surface-hover: #141414;
-            --border: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(255, 255, 255, 0.2);
-            --text-primary: #ffffff;
-            --text-secondary: #888888;
-            --gradient-1: linear-gradient(135deg, #00DFD8 0%, #007CF0 100%);
-            --gradient-2: linear-gradient(135deg, #FF0080 0%, #7928CA 100%);
+            /* ---- color tokens ---- */
+            --bg: #06070a;
+            --surface: #0c0e13;
+            --surface-2: #12151c;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-strong: rgba(255, 255, 255, 0.18);
+            --text-primary: #f4f5f7;
+            --text-secondary: #8b909a;
+            --text-tertiary: #565a63;
+
+            --accent-teal: #2dd9c8;
+            --accent-blue: #4f8cff;
+            --accent-violet: #9061f9;
+            --accent-pink: #ec4899;
+
+            --gradient-signal: linear-gradient(135deg, var(--accent-teal) 0%, var(--accent-blue) 100%);
+            --gradient-edge: linear-gradient(90deg, var(--accent-pink) 0%, var(--accent-violet) 100%);
+
+            --radius-lg: 22px;
+            --radius-md: 14px;
+            --radius-sm: 8px;
+
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg);
             color: var(--text-primary);
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
             overflow-x: hidden;
-            padding-bottom: 5rem;
+            padding-bottom: 6rem;
+            position: relative;
+        }
+
+        /* ---- blueprint grid backdrop : nods to "architecture" ---- */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 10%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 10%, transparent 70%);
         }
 
         .ambient-light {
             position: fixed;
-            top: -20%;
+            top: -25%;
             left: 50%;
             transform: translateX(-50%);
-            width: 80vw;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 124, 240, 0.15) 0%, rgba(0,0,0,0) 70%);
+            width: 90vw;
+            height: 560px;
+            background: radial-gradient(circle, rgba(79, 140, 255, 0.16) 0%, rgba(45, 217, 200, 0.05) 45%, transparent 72%);
             z-index: -1;
             pointer-events: none;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1180px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
+        /* ---------------- HERO ---------------- */
         .hero {
-            padding: 8rem 0 4rem 0;
+            padding: 7.5rem 0 4.5rem 0;
             text-align: center;
         }
 
         .status-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.05);
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1.1rem;
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border);
             border-radius: 100px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 500;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
+            margin-bottom: 2.25rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
-        .status-badge span {
+        .status-badge span.dot {
             display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: #00DFD8;
+            width: 7px;
+            height: 7px;
+            background-color: var(--accent-teal);
             border-radius: 50%;
-            margin-right: 8px;
-            box-shadow: 0 0 10px #00DFD8;
+            margin-right: 9px;
+            box-shadow: 0 0 12px var(--accent-teal);
+            animation: pulse-dot 2.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.45; }
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5.5rem);
-            font-weight: 900;
-            letter-spacing: -0.04em;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.4rem, 7.5vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            line-height: 1.08;
+            margin-bottom: 1.4rem;
         }
 
         .gradient-text {
-            background: var(--gradient-1);
+            background: var(--gradient-signal);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -110,16 +154,16 @@
         .hero p {
             font-size: 1.1rem;
             color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 3rem auto;
+            max-width: 560px;
+            margin: 0 auto 2.75rem auto;
             font-weight: 400;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(26px);
+            transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
         }
 
         .reveal.active {
@@ -127,82 +171,183 @@
             transform: translateY(0);
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .status-badge span.dot { animation: none; }
+        }
+
+        .action-links {
+            display: flex;
+            gap: 0.9rem;
+            justify-content: center;
+        }
+
+        .btn-premium, .btn-outline {
+            padding: 0.95rem 2.3rem;
+            border-radius: 12px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s ease, background 0.35s ease;
+        }
+
+        .btn-premium {
+            color: #06070a;
+            background: #f4f5f7;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(244, 245, 247, 0.18);
+        }
+
+        .btn-outline {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--border-strong);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent-teal);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        /* ---------------- SECTION HEADER ---------------- */
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin: 3.5rem 0 1.75rem 0;
+            padding-bottom: 1.1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+            font-weight: 500;
+        }
+
+        /* ---------------- BENTO GRID ---------------- */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 1.35rem;
         }
 
         .bento-item {
-            background: var(--surface);
+            --mx: 50%;
+            --my: 50%;
+            background: linear-gradient(180deg, var(--surface) 0%, #0a0b0f 100%);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             text-decoration: none;
             color: inherit;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+            isolation: isolate;
+            transition: transform 0.5s var(--ease-out), border-color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        /* cursor-tracked spotlight — the one deliberate "wow" motion */
+        .bento-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: 0;
+            background: radial-gradient(480px circle at var(--mx) var(--my), rgba(79, 140, 255, 0.14), transparent 60%);
+            transition: opacity 0.5s ease;
+        }
+
+        .bento-item:hover::before {
+            opacity: 1;
         }
 
         .bento-item:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-8px) !important;
-            background: var(--surface-hover);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: var(--border-strong);
+            transform: translateY(-6px);
+            background: linear-gradient(180deg, var(--surface-2) 0%, #0d0f15 100%);
+            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.55);
         }
 
         .bento-wide {
             grid-column: span 2;
-            background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
         }
 
-        .bento-wide::before {
+        .bento-wide::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 2px;
-            background: var(--gradient-2);
+            top: 0; left: 2.25rem; right: 2.25rem;
+            height: 1px;
+            background: var(--gradient-edge);
+            opacity: 0.55;
+        }
+
+        .bento-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin-bottom: 0.6rem;
+        }
+
+        .bento-desc {
+            color: var(--text-secondary);
+            font-size: 0.93rem;
+            line-height: 1.65;
+        }
+
+        /* ---- certificate: framed like a mounted document, fully visible ---- */
+        .cert-frame {
+            margin-top: 1.75rem;
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01));
         }
 
         .cert-container {
             width: 100%;
-            height: 250px;
-            border-radius: 12px;
+            min-height: 230px;
+            max-height: 300px;
+            border-radius: 10px;
             overflow: hidden;
-            margin-top: 1.5rem;
-            border: 1px solid var(--border);
-            background: #111;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(79, 140, 255, 0.08), transparent 55%),
+                #f4f5f7;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-secondary);
+            padding: 1rem;
         }
 
         .cert-img {
             width: 100%;
             height: 100%;
-            object-fit: cover; 
-            transition: transform 0.7s ease;
+            max-height: 280px;
+            object-fit: contain;
+            transition: transform 0.6s var(--ease-out);
         }
 
         .bento-item:hover .cert-img {
-            transform: scale(1.05);
-        }
-
-        .bento-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .bento-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            transform: scale(1.02);
         }
 
         .tech-list {
@@ -214,63 +359,63 @@
         }
 
         .tech-pill {
-            font-size: 0.75rem;
-            padding: 0.4rem 0.8rem;
-            background: rgba(255,255,255,0.05);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 0.42rem 0.75rem;
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border);
-            border-radius: 6px;
-            color: #ccc;
+            border-radius: var(--radius-sm);
+            color: #c7cbd1;
+            transition: border-color 0.35s ease, color 0.35s ease;
         }
 
-        .action-links {
+        .bento-item:hover .tech-pill {
+            border-color: rgba(79, 140, 255, 0.35);
+            color: #dfe2e7;
+        }
+
+        /* ---------------- FOOTER ---------------- */
+        .site-footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
             display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            color: var(--text-tertiary);
         }
 
-        .btn-premium {
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
+        .site-footer a {
+            color: var(--text-secondary);
             text-decoration: none;
-            color: #000;
-            background: #fff;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
         }
 
-        .btn-premium:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+        .site-footer a:hover {
+            color: var(--text-primary);
         }
 
-        .btn-outline {
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            color: #fff;
-            background: transparent;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline:hover {
-            border-color: #fff;
-            background: rgba(255,255,255,0.05);
+        /* ---------------- RESPONSIVE ---------------- */
+        @media (max-width: 1024px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 900px) {
             .container { padding: 0 1.5rem; }
+            .hero { padding: 5rem 0 3rem 0; }
+        }
+
+        @media (max-width: 640px) {
             .bento-grid { grid-template-columns: 1fr; gap: 1rem; }
             .bento-wide { grid-column: span 1; }
-            .hero { padding: 5rem 0 3rem 0; }
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 2.5rem; }
             .action-links { flex-direction: column; width: 100%; }
-            .btn-premium, .btn-outline { width: 100%; padding: 1.2rem; }
-            .cert-container { height: 200px; }
+            .btn-premium, .btn-outline { width: 100%; text-align: center; }
+            .cert-container { min-height: 190px; }
+            .bento-item { padding: 1.75rem; }
+            .site-footer { flex-direction: column; gap: 0.6rem; text-align: center; }
         }
     </style>
 </head>
@@ -281,29 +426,36 @@
     <div class="container">
         <header class="hero reveal">
             <div class="status-badge">
-                <span></span> Available for Junior Backend roles
+                <span class="dot"></span> Available for Junior Backend roles
             </div>
-            <h1>Zura Chakvetadze.<br> <span class="gradient-text">Architecting the Backend.</span></h1>
-            <p>I build scalable databases, robust REST APIs, and efficient logic structures. Currently mastering Python, FastAPI, and SQL architecture.</p>
-            
+            <h1>Zura Chakvetadze.<br><span class="gradient-text">Architecting the backend.</span></h1>
+            <p>I build scalable databases, secure REST APIs, and clean, modular logic structures. Currently working across Python, FastAPI, and relational SQL design.</p>
+
             <div class="action-links">
-                <a href="mailto:chakvetzura@gmail.com" class="btn-premium">Contact Me</a>
-                <a href="https://www.linkedin.com/in/zura-chakvetadze-709668406" target="_blank" class="btn-outline">LinkedIn</a>
+                <a href="mailto:chakvetzura@gmail.com" class="btn-premium">Contact me</a>
+                <a href="https://www.linkedin.com/in/zura-chakvetadze-709668406" target="_blank" rel="noopener" class="btn-outline">LinkedIn</a>
             </div>
         </header>
 
+        <div class="section-header reveal">
+            <h2>Selected work</h2>
+            <span>04 projects</span>
+        </div>
+
         <main class="bento-grid">
-            
-            <a href="https://github.com/zura-cb-svg/harvard-cs50p-final-project" target="_blank" class="bento-item bento-wide reveal">
+
+            <a href="https://github.com/zura-cb-svg/harvard-cs50p-final-project" target="_blank" rel="noopener" class="bento-item bento-wide reveal">
                 <h2 class="bento-title">CS50P Harvard Graduate</h2>
                 <p class="bento-desc">Developed a comprehensive Studio Management System as my final project, proving proficiency in core programming logic and architecture.</p>
-                
-                <div class="cert-container">
-                    <img src="image.png.jpg.jpg" alt="Harvard CS50P Certificate" class="cert-img">
+
+                <div class="cert-frame">
+                    <div class="cert-container">
+                        <img src="image.png.jpg.jpg" alt="Harvard CS50P Certificate" class="cert-img">
+                    </div>
                 </div>
             </a>
 
-            <a href="https://github.com/zura-cb-svg/mma-fighter-api" target="_blank" class="bento-item reveal" style="transition-delay: 0.1s;">
+            <a href="https://github.com/zura-cb-svg/mma-fighter-api" target="_blank" rel="noopener" class="bento-item reveal" style="transition-delay: 0.08s;">
                 <h2 class="bento-title">MMA Club Management API</h2>
                 <p class="bento-desc">A modular, production-ready REST API engineered around secure-by-default principles: JWT-based authentication, Bcrypt password hashing, and a relational schema with One-to-Many data modeling. Clean separation of concerns and robust CRUD endpoints reflect real-world backend architecture.</p>
                 <div class="tech-list">
@@ -318,7 +470,7 @@
                 </div>
             </a>
 
-            <a href="https://github.com/zura-cb-svg/task-manager" target="_blank" class="bento-item reveal" style="transition-delay: 0.2s;">
+            <a href="https://github.com/zura-cb-svg/task-manager" target="_blank" rel="noopener" class="bento-item reveal" style="transition-delay: 0.16s;">
                 <h2 class="bento-title">Task Manager App</h2>
                 <p class="bento-desc">Backend logic for managing daily tasks, demonstrating object-oriented principles and clean code structure.</p>
                 <div class="tech-list">
@@ -328,8 +480,8 @@
                 </div>
             </a>
 
-            <a href="https://github.com/zura-cb-svg/task-manager" target="_blank" class="bento-item bento-wide reveal" style="transition-delay: 0.3s;">
-                <h2 class="bento-title">Flask SQL Shop & Architecture</h2>
+            <a href="https://github.com/zura-cb-svg/task-manager" target="_blank" rel="noopener" class="bento-item bento-wide reveal" style="transition-delay: 0.24s;">
+                <h2 class="bento-title">Flask SQL Shop &amp; Architecture</h2>
                 <p class="bento-desc">A web application demonstrating the bridge between frontend templates and backend relational databases.</p>
                 <div class="tech-list">
                     <span class="tech-pill">Flask</span>
@@ -340,6 +492,11 @@
             </a>
 
         </main>
+
+        <footer class="site-footer reveal">
+            <span>&copy; 2026 Zura Chakvetadze</span>
+            <a href="mailto:chakvetzura@gmail.com">chakvetzura@gmail.com</a>
+        </footer>
     </div>
 
     <script>
@@ -359,6 +516,20 @@
             document.querySelectorAll('.reveal').forEach((el) => {
                 observer.observe(el);
             });
+
+            // cursor-tracked spotlight on bento cards
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+                document.querySelectorAll('.bento-item').forEach((card) => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = ((e.clientX - rect.left) / rect.width) * 100;
+                        const y = ((e.clientY - rect.top) / rect.height) * 100;
+                        card.style.setProperty('--mx', x + '%');
+                        card.style.setProperty('--my', y + '%');
+                    });
+                });
+            }
         });
     </script>
 </body>
