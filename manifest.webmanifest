@@ -1,0 +1,16 @@
+{
+    "name": "Zura Chakvetadze | Backend Developer",
+    "short_name": "Zura Dev",
+    "description": "Portfolio of Zura Chakvetadze, Junior Backend Developer.",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#08090b",
+    "theme_color": "#08090b",
+    "icons": [
+      {
+        "src": "./icon.jpg.jpg",
+        "type": "image/jpeg"
+      }
+    ]
+  }
