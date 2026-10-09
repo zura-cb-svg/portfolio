@@ -24,9 +24,8 @@
 
     <link rel="manifest" href="./manifest.webmanifest">
 
-    <!-- Existing icon -->
-    <link rel="apple-touch-icon" href="./icon.jpg.jpg">
-    <link rel="icon" type="image/jpeg" href="./icon.jpg.jpg">
+    <link rel="apple-touch-icon" href="./download (1).jpg">
+    <link rel="icon" type="image/jpeg" href="./download (1).jpg">
 
     <link rel="canonical" href="https://zura-cb-svg.github.io/portfolio/">
 
@@ -2138,7 +2137,7 @@
                     >
 
                         <img
-                            src="./image.png.jpg.jpg"
+                            src="./image.png.jpg"
                             alt="Harvard CS50P certificate"
                             loading="lazy"
                         >
@@ -2360,23 +2359,6 @@
 
             update();
         })();
-    </script>
-
-    <!-- PWA Service Worker -->
-
-    <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", function () {
-                navigator.serviceWorker
-                    .register("./service-worker.js")
-                    .catch(function (error) {
-                        console.error(
-                            "Service Worker registration failed:",
-                            error
-                        );
-                    });
-            });
-        }
     </script>
 
 </body>
